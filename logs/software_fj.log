@@ -1,0 +1,97 @@
+2026-10-30 10:48:32 | INFO     | gestor       | Gestor Software FJ iniciado
+2026-10-30 10:48:32 | INFO     | gestor       | Servicio agregado: SRV-0001 | Sala 'Sala Andes' | capacidad 10 personas | $50,000/hora | Disponible
+2026-10-30 10:48:32 | INFO     | gestor       | Servicio agregado: SRV-0002 | Equipo 'Portátiles Lenovo' | 5 unidades | $8,000/hora + depósito | Disponible
+2026-10-30 10:48:32 | INFO     | gestor       | Servicio agregado: SRV-0003 | Asesoría 'Asesoría en ciberseguridad' | Seguridad informática | nivel senior | $120,000/hora | Disponible
+2026-10-30 10:48:32 | INFO     | gestor       | Servicio agregado: SRV-0004 | Equipo 'Proyector Epson' | 2 unidades | $15,000/hora + depósito | Disponible
+2026-10-30 10:48:32 | DEBUG    | main         | Operación 01 iniciada: Registrar cliente válido (Laura Gómez)
+2026-10-30 10:48:32 | INFO     | gestor       | Cliente registrado: CLI-0001 | Laura Gómez | Doc. 1012345678 | laura.gomez@correo.com | 3001234567
+2026-10-30 10:48:32 | DEBUG    | main         | Operación 01 finalizada
+2026-10-30 10:48:32 | DEBUG    | main         | Operación 02 iniciada: Registrar cliente válido sin teléfono (Carlos Ruiz)
+2026-10-30 10:48:32 | INFO     | gestor       | Cliente registrado: CLI-0002 | Carlos Ruiz | Doc. 79888777 | carlos.ruiz@empresa.co | sin teléfono
+2026-10-30 10:48:32 | DEBUG    | main         | Operación 02 finalizada
+2026-10-30 10:48:32 | DEBUG    | main         | Operación 03 iniciada: Registrar cliente con correo inválido
+2026-10-30 10:48:32 | WARNING  | main         | Operación 03 fallida: [FJ-100] Dato inválido en 'correo': 'ana.torres@' no tiene un formato válido
+2026-10-30 10:48:32 | DEBUG    | main         | Operación 03 finalizada
+2026-10-30 10:48:32 | DEBUG    | main         | Operación 04 iniciada: Registrar cliente con documento repetido
+2026-10-30 10:48:32 | WARNING  | main         | Operación 04 fallida: [FJ-200] Ya existe un cliente con documento 1012345678
+2026-10-30 10:48:32 | DEBUG    | main         | Operación 04 finalizada
+2026-10-30 10:48:32 | DEBUG    | main         | Operación 05 iniciada: Registrar cliente sin nombre
+2026-10-30 10:48:32 | WARNING  | main         | Operación 05 fallida: [FJ-101] Falta el parámetro obligatorio 'nombre'
+2026-10-30 10:48:32 | DEBUG    | main         | Operación 05 finalizada
+2026-10-30 10:48:32 | DEBUG    | main         | Operación 06 iniciada: Crear servicio con tarifa negativa
+2026-10-30 10:48:32 | WARNING  | main         | Operación 06 fallida: [FJ-100] Dato inválido en 'tarifa_hora': debe ser mayor que cero
+2026-10-30 10:48:32 | DEBUG    | main         | Operación 06 finalizada
+2026-10-30 10:48:32 | DEBUG    | main         | Operación 07 iniciada: Crear asesoría con nivel inexistente
+2026-10-30 10:48:32 | WARNING  | main         | Operación 07 fallida: [FJ-100] Dato inválido en 'nivel': debe ser uno de ['junior', 'senior', 'experto']
+2026-10-30 10:48:32 | DEBUG    | main         | Operación 07 finalizada
+2026-10-30 10:48:32 | DEBUG    | main         | Operación 08 iniciada: Crear y agregar asesoría válida (nivel experto)
+2026-10-30 10:48:32 | INFO     | gestor       | Servicio agregado: SRV-0007 | Asesoría 'Asesoría en Python' | Desarrollo de software | nivel experto | $100,000/hora | Disponible
+2026-10-30 10:48:32 | DEBUG    | main         | Operación 08 finalizada
+2026-10-30 10:48:32 | DEBUG    | main         | Operación 09 iniciada: Reservar sala 3 h para 6 personas con 10 % de descuento
+2026-10-30 10:48:32 | INFO     | reserva      | RES-0001 confirmada | Laura Gómez | Sala Andes | $160,650.00
+2026-10-30 10:48:32 | DEBUG    | reserva      | RES-0001: intento de confirmación finalizado (estado=CONFIRMADA)
+2026-10-30 10:48:32 | DEBUG    | main         | Operación 09 finalizada
+2026-10-30 10:48:32 | DEBUG    | main         | Operación 10 iniciada: Alquilar 3 portátiles por 2 h 30 min (duración como timedelta)
+2026-10-30 10:48:32 | INFO     | reserva      | RES-0002 confirmada | Carlos Ruiz | Portátiles Lenovo | $142,800.00
+2026-10-30 10:48:32 | DEBUG    | reserva      | RES-0002: intento de confirmación finalizado (estado=CONFIRMADA)
+2026-10-30 10:48:32 | DEBUG    | main         | Operación 10 finalizada
+2026-10-30 10:48:32 | DEBUG    | main         | Operación 11 iniciada: Reservar sala para 15 personas (supera la capacidad)
+2026-10-30 10:48:32 | ERROR    | reserva      | RES-0003: no se pudo confirmar -> [FJ-100] Dato inválido en 'personas': la sala admite de 1 a 10 personas (recibido 15)
+2026-10-30 10:48:32 | DEBUG    | reserva      | RES-0003: intento de confirmación finalizado (estado=RECHAZADA)
+2026-10-30 10:48:32 | WARNING  | main         | Operación 11 fallida: [FJ-400] Reserva inválida: RES-0003 rechazada para Carlos Ruiz
+2026-10-30 10:48:32 | WARNING  | main         |    causa original: [FJ-100] Dato inválido en 'personas': la sala admite de 1 a 10 personas (recibido 15)
+2026-10-30 10:48:32 | DEBUG    | main         | Operación 11 finalizada
+2026-10-30 10:48:32 | DEBUG    | main         | Operación 12 iniciada: Alquilar proyector en mantenimiento
+2026-10-30 10:48:32 | ERROR    | reserva      | RES-0004: no se pudo confirmar -> [FJ-300] El servicio 'Proyector Epson' no está disponible
+2026-10-30 10:48:32 | DEBUG    | reserva      | RES-0004: intento de confirmación finalizado (estado=RECHAZADA)
+2026-10-30 10:48:32 | WARNING  | main         | Operación 12 fallida: [FJ-400] Reserva inválida: RES-0004 rechazada para Laura Gómez
+2026-10-30 10:48:32 | WARNING  | main         |    causa original: [FJ-300] El servicio 'Proyector Epson' no está disponible
+2026-10-30 10:48:32 | DEBUG    | main         | Operación 12 finalizada
+2026-10-30 10:48:32 | DEBUG    | main         | Operación 13 iniciada: Alquilar 4 portátiles cuando solo quedan 2
+2026-10-30 10:48:32 | ERROR    | reserva      | RES-0005: no se pudo confirmar -> [FJ-300] El servicio 'Portátiles Lenovo' solo tiene 2 unidades (se pidieron 4)
+2026-10-30 10:48:32 | DEBUG    | reserva      | RES-0005: intento de confirmación finalizado (estado=RECHAZADA)
+2026-10-30 10:48:32 | WARNING  | main         | Operación 13 fallida: [FJ-400] Reserva inválida: RES-0005 rechazada para Laura Gómez
+2026-10-30 10:48:32 | WARNING  | main         |    causa original: [FJ-300] El servicio 'Portátiles Lenovo' solo tiene 2 unidades (se pidieron 4)
+2026-10-30 10:48:32 | DEBUG    | main         | Operación 13 finalizada
+2026-10-30 10:48:32 | DEBUG    | main         | Operación 14 iniciada: Reservar con un cliente no registrado
+2026-10-30 10:48:32 | WARNING  | main         | Operación 14 fallida: [FJ-201] No existe un cliente con documento 99999999
+2026-10-30 10:48:32 | DEBUG    | main         | Operación 14 finalizada
+2026-10-30 10:48:32 | DEBUG    | main         | Operación 15 iniciada: Reservar asesoría de 10 horas (máximo 8)
+2026-10-30 10:48:32 | ERROR    | reserva      | RES-0006: no se pudo confirmar -> [FJ-100] Dato inválido en 'duracion': debe estar entre 1 y 8 horas (recibido 10.0)
+2026-10-30 10:48:32 | DEBUG    | reserva      | RES-0006: intento de confirmación finalizado (estado=RECHAZADA)
+2026-10-30 10:48:32 | WARNING  | main         | Operación 15 fallida: [FJ-400] Reserva inválida: RES-0006 rechazada para Carlos Ruiz
+2026-10-30 10:48:32 | WARNING  | main         |    causa original: [FJ-100] Dato inválido en 'duracion': debe estar entre 1 y 8 horas (recibido 10.0)
+2026-10-30 10:48:32 | DEBUG    | main         | Operación 15 finalizada
+2026-10-30 10:48:32 | DEBUG    | main         | Operación 16 iniciada: Reservar sala sin indicar número de personas
+2026-10-30 10:48:32 | ERROR    | reserva      | RES-0007: no se pudo confirmar -> [FJ-101] Falta el parámetro obligatorio 'personas'
+2026-10-30 10:48:32 | DEBUG    | reserva      | RES-0007: intento de confirmación finalizado (estado=RECHAZADA)
+2026-10-30 10:48:32 | WARNING  | main         | Operación 16 fallida: [FJ-400] Reserva inválida: RES-0007 rechazada para Carlos Ruiz
+2026-10-30 10:48:32 | WARNING  | main         |    causa original: [FJ-101] Falta el parámetro obligatorio 'personas'
+2026-10-30 10:48:32 | DEBUG    | main         | Operación 16 finalizada
+2026-10-30 10:48:32 | DEBUG    | main         | Operación 17 iniciada: Reservar asesoría 2 h y procesar el cobro
+2026-10-30 10:48:32 | INFO     | reserva      | RES-0008 confirmada | Laura Gómez | Asesoría en ciberseguridad | $428,400.00
+2026-10-30 10:48:32 | DEBUG    | reserva      | RES-0008: intento de confirmación finalizado (estado=CONFIRMADA)
+2026-10-30 10:48:32 | INFO     | reserva      | RES-0008 procesada | cobro de $428,400.00
+2026-10-30 10:48:32 | DEBUG    | reserva      | RES-0008: intento de procesamiento finalizado (estado=PROCESADA)
+2026-10-30 10:48:32 | DEBUG    | main         | Operación 17 finalizada
+2026-10-30 10:48:32 | DEBUG    | main         | Operación 18 iniciada: Cancelar el alquiler de portátiles
+2026-10-30 10:48:32 | INFO     | reserva      | RES-0002 cancelada (el cliente cambió de fecha)
+2026-10-30 10:48:32 | DEBUG    | main         | Operación 18 finalizada
+2026-10-30 10:48:32 | DEBUG    | main         | Operación 19 iniciada: Intentar procesar la reserva cancelada
+2026-10-30 10:48:32 | DEBUG    | reserva      | RES-0002: intento de procesamiento finalizado (estado=CANCELADA)
+2026-10-30 10:48:32 | WARNING  | main         | Operación 19 fallida: [FJ-401] No se puede 'procesar' una reserva en estado 'CANCELADA'
+2026-10-30 10:48:32 | DEBUG    | main         | Operación 19 finalizada
+2026-10-30 10:48:32 | DEBUG    | main         | Operación 20 iniciada: Intentar cancelar la reserva ya procesada
+2026-10-30 10:48:32 | WARNING  | main         | Operación 20 fallida: [FJ-401] No se puede 'cancelar' una reserva en estado 'PROCESADA'
+2026-10-30 10:48:32 | DEBUG    | main         | Operación 20 finalizada
+2026-10-30 10:48:32 | DEBUG    | main         | Operación 21 iniciada: Procesar el cobro de la reserva de la sala
+2026-10-30 10:48:32 | INFO     | reserva      | RES-0001 procesada | cobro de $160,650.00
+2026-10-30 10:48:32 | DEBUG    | reserva      | RES-0001: intento de procesamiento finalizado (estado=PROCESADA)
+2026-10-30 10:48:32 | DEBUG    | main         | Operación 21 finalizada
+2026-10-30 10:48:32 | DEBUG    | main         | Operación 22 iniciada: Calcular costo de sala con descuento del 80 % (máximo 50 %)
+2026-10-30 10:48:32 | WARNING  | main         | Operación 22 fallida: [FJ-100] Dato inválido en 'descuento': debe estar entre 0 y 0.5
+2026-10-30 10:48:32 | DEBUG    | main         | Operación 22 finalizada
+2026-10-30 10:48:32 | DEBUG    | main         | Operación 23 iniciada: Calcular costo con duración en texto ('dos horas')
+2026-10-30 10:48:32 | WARNING  | main         | Operación 23 fallida: [FJ-100] Dato inválido en 'duracion': tipo no soportado (str)
+2026-10-30 10:48:32 | DEBUG    | main         | Operación 23 finalizada
+2026-10-30 10:48:32 | INFO     | main         | Ejecución finalizada sin interrupciones
