@@ -73,7 +73,7 @@ Cada integrante trabaja en su propia rama y entrega sus cambios mediante *pull r
 | Integrante | Rama | Responsabilidad |
 |---|---|---|
 | Andrés David Barón Romero | `andres-baron` | Estructura base del proyecto, excepciones y logs |
-| Integrante 2 | `integrante-2` | Clase abstracta Entidad y Cliente |
+| Cindy Lorena Regino Salgado | `integrante-2` | Clase abstracta Entidad y Cliente |
 | Integrante 3 | `integrante-3` | Servicios especializados |
 | Integrante 4 | `integrante-4` | Reservas |
 | Integrante 5 | `integrante-5` | Simulaciones y documento final |
